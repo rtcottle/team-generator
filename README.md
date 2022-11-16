@@ -21,6 +21,7 @@ This is a project to generate a team roster for ease of use later on.
 ## Installation
 
 Node.js is required for this to run. Find the link here: https://nodejs.org/en/download/
+Inquirer is required for this package. This can be installed by running "npm i inquirer@8.2.4" in the terminal.
 
 ## Usage
 
