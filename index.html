@@ -17,18 +17,20 @@
         </div>
       </section>
       <section class="section">
-        <div class="tile is-ancestor">
-            <div class="tile is-vertical is-8">
-                <div class="container is fluid">
-                    <div class="tile is-parent">
-                    <article class="tile is-child notification is-info">
-                     <p class="title">Name</p>
-                     <p class="subtitle">Icon</p>
-                    </article>
-                </div>      
-            </div>
+        <div class="tile is-ancestor is-vertical">
+          <div class="tile is-6 is-parent">
+            <article class="tile is-child notification is-info">
+              <p class="title">${Name}</p>
+              <p class="subtitle">${Role}</p>
+              <section class="is-primary">
+                <p class="box">${ID}</p>
+                <p class="box">${Email}</p>
+                <p class="box">${Office}</p>
+              </section>
+            </article>
+          </div>
         </div>
-     </section>
+      </section>
     </main>
   </body>
 </html>
