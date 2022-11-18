@@ -64,6 +64,45 @@ const startingQuestions = () => {
         addManager();
       }
     });
+  if (userInput.role === "Engineer") {
+    addEngineer();
+  }
+  if (userInput.role === "Intern") {
+    addIntern();
+  }
+  if (userInput.role === "Employee") {
+    addEmployee();
+  }
+};
+
+const addNewEmployee = () => {
+  inquirer
+    .prompt([
+      {
+        name: "role",
+        type: "list",
+        message: "What other employee would you like to add?",
+        choices: ["Employee", "Manager", "Engineer", "Intern", "None"],
+      },
+    ])
+    .then(function (userInput) {
+      console.log(userInput);
+      if (userInput.role === "Manager") {
+        addManager();
+      }
+    });
+  if (userInput.role === "Engineer") {
+    addEngineer();
+  }
+  if (userInput.role === "Intern") {
+    addIntern();
+  }
+  if (userInput.role === "Employee") {
+    addEmployee();
+  }
+  if (userInput.role === "None") {
+    createHTML();
+  }
 };
 
 const addManager = () => {
@@ -75,11 +114,30 @@ const addManager = () => {
         message: "What is your name?",
         type: "input",
       },
+      {
+        name: "id",
+        message: "What is your id?",
+        type: "input",
+      },
+      {
+        name: "email",
+        message: "What is your email?",
+        type: "input",
+      },
+      {
+        name: "office",
+        message: "What is your office number?",
+        type: "input",
+      },
     ])
     .then(function (managerInput) {
-      let newManager = new Manager(managerInput.name, );
+      let newManager = new Manager(
+        managerInput.name,
+        managerInput.id,
+        managerInput.email,
+        managerInput.office
+      );
       team.push(newManager);
-      createHTML();
     });
 };
 
