@@ -36,6 +36,7 @@ Link to video of this program working: https://drive.google.com/file/d/1CFXFXSCE
 - README formatting: https://coding-boot-camp.github.io/full-stack/github/professional-readme-guide/
 - Inquirer: https://www.npmjs.com/package/inquirer
 - Bulma: https://bulma.io/
+- Classes help: https://www.freecodecamp.org/news/javascript-classes-how-they-work-with-use-case/#use-case-description
 
 ## License
 
