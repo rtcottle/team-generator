@@ -9,7 +9,7 @@ const makePage = (myTeam) => {
             <div class="tile is-6 is-parent">
               <article class="tile is-child notification is-info">
                 <p class="title">${myTeam[i].name}</p>
-                <p class="subtitle">${myTeam[i].role}</p>
+                <p class="subtitle">${myTeam[i].constructor.name}</p>
                 <section class="is-primary">
                   <p class="box">${myTeam[i].id}</p>
                   <p class="box"><a href="mailto:${myTeam[i].email}">${myTeam[i].email}</a></p>
