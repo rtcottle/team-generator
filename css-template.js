@@ -1,5 +1,8 @@
 const stylePage = () => {
-  let newStyle = ``;
+  let newStyle = `#hero {
+    text-align: center;
+  }
+  `;
   return stylePage;
 };
 

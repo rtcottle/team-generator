@@ -8,6 +8,7 @@ const fs = require("fs");
 const template = require("./template");
 const css = require("./css-template");
 const { type } = require("os");
+const stylePage = require("./css-template");
 const team = [];
 
 //begin the prompts
@@ -222,7 +223,7 @@ const createHTML = () => {
   fs.writeFile("./dist/index.html", pageLayout, (err) => {
     if (err) throw new Error("Render Error", err);
   });
-  //generate css?
+  stylePage();
 };
 
 startingQuestions();

@@ -29,7 +29,7 @@ const makePage = (myTeam) => {
       <main>
         <section class="hero is-small is-primary is-danger">
           <div class="hero-body">
-            <p class="title">My Team</p>
+            <p class="title" id="hero">My Team</p>
           </div>
         </section>
         <section class="section">
