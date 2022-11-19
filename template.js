@@ -1,18 +1,28 @@
 const makePage = (myTeam) => {
+  let cards = [];
   console.log("It's my team", myTeam);
-  //   let test = `<h1>${myTeam[0].name}</h1>`;
-  let test2 = `<div class="tile is-6 is-parent">
+  // loop to take each employee type and store data in cards array.
+  for (let i = 0; i < myTeam.length; i++) {
+    //   let test = `<h1>${myTeam[0].name}</h1>`;
+    // TODO: how to get a for loop to go through each card?
+    let card = `
+            <div class="tile is-6 is-parent">
               <article class="tile is-child notification is-info">
-                <p class="title">${myTeam[0].name}</p>
-                <p class="subtitle">${myTeam[0].role}</p>
+                <p class="title">${myTeam[i].name}</p>
+                <p class="subtitle">${myTeam[i].role}</p>
                 <section class="is-primary">
-                  <p class="box">${myTeam[0].id}</p>
-                  <p class="box"><a href="mailto:${myTeam[0].email}">${myTeam[0].email}</a></p>
-                  <p class="box">${myTeam[0].office}</p>
+                  <p class="box">${myTeam[i].id}</p>
+                  <p class="box"><a href="mailto:${myTeam[i].email}">${myTeam[i].email}</a></p>
+                  <p class="box">${myTeam[i].office}${myTeam[i].github}${myTeam[i].school}</p>
                 </section>
               </article>
             </div>`;
-  let cards = [];
+
+    const createCards = () => {
+      cards.push(card);
+    };
+    createCards(myTeam);
+  }
 
   let newPage = `<!DOCTYPE html>
   <html>
@@ -34,7 +44,7 @@ const makePage = (myTeam) => {
         </section>
         <section class="section">
           <div class="tile is-ancestor is-vertical">
-           ${test2}
+           ${cards}
         </section>
       </main>
     </body>

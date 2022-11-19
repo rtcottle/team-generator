@@ -6,8 +6,6 @@ const Intern = require("./lib/intern");
 const inquirer = require("inquirer");
 const fs = require("fs");
 const template = require("./template");
-const css = require("./css-template");
-const { type } = require("os");
 const stylePage = require("./css-template");
 const team = [];
 
@@ -23,7 +21,8 @@ const startingQuestions = () => {
       },
     ])
     .then(function (userInput) {
-      console.log(userInput);
+      //check user input
+      // console.log("user input: >>", userInput);
       if (userInput.role === "Manager") {
         addManager();
       }
@@ -38,7 +37,7 @@ const startingQuestions = () => {
       }
     });
 };
-
+//TODO: ask about getting the name to show up from the initial selection.
 //add an additional employee
 const addNewEmployee = () => {
   inquirer
@@ -51,7 +50,8 @@ const addNewEmployee = () => {
       },
     ])
     .then(function (userInput) {
-      console.log(userInput);
+      //check user input
+      // console.log("user input: >>", userInput);
       if (userInput.role === "Manager") {
         addManager();
       }
@@ -72,7 +72,8 @@ const addNewEmployee = () => {
 
 // add a manager
 const addManager = () => {
-  console.log("I'm a manager");
+  //check manager
+  // console.log("I'm a manager");
   inquirer
     .prompt([
       {
@@ -110,7 +111,8 @@ const addManager = () => {
 
 // add an engineer
 const addEngineer = () => {
-  console.log("I'm a engineer");
+  //check engineer
+  // console.log("I'm a engineer");
   inquirer
     .prompt([
       {
@@ -148,7 +150,8 @@ const addEngineer = () => {
 
 // add an intern
 const addIntern = () => {
-  console.log("I'm an intern");
+  //check intern
+  // console.log("I'm an intern");
   inquirer
     .prompt([
       {
@@ -186,7 +189,8 @@ const addIntern = () => {
 
 // add an employee
 const addEmployee = () => {
-  console.log("I'm an employee");
+  //check employee
+  // console.log("I'm an employee");
   inquirer
     .prompt([
       {
@@ -219,7 +223,7 @@ const addEmployee = () => {
 // creates the HTML
 const createHTML = () => {
   const pageLayout = template(team);
-  console.log(pageLayout, "page layout");
+  // console.log(pageLayout, "page layout");
   fs.writeFile("./dist/index.html", pageLayout, (err) => {
     if (err) throw new Error("Render Error", err);
   });
@@ -228,6 +232,5 @@ const createHTML = () => {
 
 startingQuestions();
 
-//TODO: generate CSS file
 //TODO: check to see if email link works.
 //TODO: clicking on github link opens in new tab
