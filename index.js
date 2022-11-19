@@ -9,46 +9,8 @@ const template = require("./template");
 const css = require("./css-template");
 const { type } = require("os");
 const team = [];
-//HTML framework
-//TODO: take out the card section and make another variable for an employee or make one for each type of employee and append them to the end.
-// const htmlFile = `<!DOCTYPE html>
-// <html>
-//   <head>
-//     <meta charset="utf-8" />
-//     <meta name="viewport" content="width=device-width, initial-scale=1" />
-//     <title>Team Roster</title>
-//     <link
-//       rel="stylesheet"
-//       href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
-//     />
-//   </head>
-//   <body>
-//     <main>
-//       <section class="hero is-small is-primary is-danger">
-//         <div class="hero-body">
-//           <p class="title">My Team</p>
-//         </div>
-//       </section>
-//       <section class="section">
-//         <div class="tile is-ancestor is-vertical">
-//           <div class="tile is-6 is-parent">
-//             <article class="tile is-child notification is-info">
-//               <p class="title">${name}</p>
-//               <p class="subtitle">${role}</p>
-//               <section class="is-primary">
-//                 <p class="box">${id}</p>
-//                 <p class="box">${email}</p>
-//                 <p class="box">${office}</p>
-//               </section>
-//             </article>
-//           </div>
-//         </div>
-//       </section>
-//     </main>
-//   </body>
-// </html>
-// `;
 
+//begin the prompts
 const startingQuestions = () => {
   inquirer
     .prompt([
@@ -76,6 +38,7 @@ const startingQuestions = () => {
     });
 };
 
+//add an additional employee
 const addNewEmployee = () => {
   inquirer
     .prompt([
@@ -106,6 +69,7 @@ const addNewEmployee = () => {
     });
 };
 
+// add a manager
 const addManager = () => {
   console.log("I'm a manager");
   inquirer
@@ -143,6 +107,7 @@ const addManager = () => {
     });
 };
 
+// add an engineer
 const addEngineer = () => {
   console.log("I'm a engineer");
   inquirer
@@ -180,6 +145,7 @@ const addEngineer = () => {
     });
 };
 
+// add an intern
 const addIntern = () => {
   console.log("I'm an intern");
   inquirer
@@ -217,6 +183,7 @@ const addIntern = () => {
     });
 };
 
+// add an employee
 const addEmployee = () => {
   console.log("I'm an employee");
   inquirer
@@ -248,6 +215,7 @@ const addEmployee = () => {
     });
 };
 
+// creates the HTML
 const createHTML = () => {
   const pageLayout = template(team);
   console.log(pageLayout, "page layout");
@@ -260,7 +228,5 @@ const createHTML = () => {
 startingQuestions();
 
 //TODO: generate CSS file
-//TODO: clicking on HTML link for email opens email in new window with to field as the email address
+//TODO: check to see if email link works.
 //TODO: clicking on github link opens in new tab
-//TODO: Option to add intern or engineer
-//TODO: html generates at the end with team roster
