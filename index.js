@@ -6,6 +6,7 @@ const Intern = require("./lib/intern");
 const inquirer = require("inquirer");
 const fs = require("fs");
 const template = require("./template");
+const css = require("./css-template");
 const { type } = require("os");
 const team = [];
 //HTML framework
@@ -63,16 +64,16 @@ const startingQuestions = () => {
       if (userInput.role === "Manager") {
         addManager();
       }
+      if (userInput.role === "Engineer") {
+        addEngineer();
+      }
+      if (userInput.role === "Intern") {
+        addIntern();
+      }
+      if (userInput.role === "Employee") {
+        addEmployee();
+      }
     });
-  if (userInput.role === "Engineer") {
-    addEngineer();
-  }
-  if (userInput.role === "Intern") {
-    addIntern();
-  }
-  if (userInput.role === "Employee") {
-    addEmployee();
-  }
 };
 
 const addNewEmployee = () => {
@@ -90,19 +91,19 @@ const addNewEmployee = () => {
       if (userInput.role === "Manager") {
         addManager();
       }
+      if (userInput.role === "Engineer") {
+        addEngineer();
+      }
+      if (userInput.role === "Intern") {
+        addIntern();
+      }
+      if (userInput.role === "Employee") {
+        addEmployee();
+      }
+      if (userInput.role === "None") {
+        createHTML();
+      }
     });
-  if (userInput.role === "Engineer") {
-    addEngineer();
-  }
-  if (userInput.role === "Intern") {
-    addIntern();
-  }
-  if (userInput.role === "Employee") {
-    addEmployee();
-  }
-  if (userInput.role === "None") {
-    createHTML();
-  }
 };
 
 const addManager = () => {
@@ -138,6 +139,112 @@ const addManager = () => {
         managerInput.office
       );
       team.push(newManager);
+      addNewEmployee();
+    });
+};
+
+const addEngineer = () => {
+  console.log("I'm a engineer");
+  inquirer
+    .prompt([
+      {
+        name: "name",
+        message: "What is your name?",
+        type: "input",
+      },
+      {
+        name: "id",
+        message: "What is your id?",
+        type: "input",
+      },
+      {
+        name: "email",
+        message: "What is your email?",
+        type: "input",
+      },
+      {
+        name: "github",
+        message: "What is your github profile?",
+        type: "input",
+      },
+    ])
+    .then(function (engineerInput) {
+      let newEngineer = new Engineer(
+        engineerInput.name,
+        engineerInput.id,
+        engineerInput.email,
+        engineerInput.github
+      );
+      team.push(newEngineer);
+      addNewEmployee();
+    });
+};
+
+const addIntern = () => {
+  console.log("I'm an intern");
+  inquirer
+    .prompt([
+      {
+        name: "name",
+        message: "What is your name?",
+        type: "input",
+      },
+      {
+        name: "id",
+        message: "What is your id?",
+        type: "input",
+      },
+      {
+        name: "email",
+        message: "What is your email?",
+        type: "input",
+      },
+      {
+        name: "office",
+        message: "What is your school?",
+        type: "input",
+      },
+    ])
+    .then(function (internInput) {
+      let newIntern = new Intern(
+        internInput.name,
+        internInput.id,
+        internInput.email,
+        internInput.office
+      );
+      team.push(newIntern);
+      addNewEmployee();
+    });
+};
+
+const addEmployee = () => {
+  console.log("I'm an employee");
+  inquirer
+    .prompt([
+      {
+        name: "name",
+        message: "What is your name?",
+        type: "input",
+      },
+      {
+        name: "id",
+        message: "What is your id?",
+        type: "input",
+      },
+      {
+        name: "email",
+        message: "What is your email?",
+        type: "input",
+      },
+    ])
+    .then(function (employeeInput) {
+      let newEmployee = new Employee(
+        employeeInput.name,
+        employeeInput.id,
+        employeeInput.email
+      );
+      team.push(newEmployee);
+      addNewEmployee();
     });
 };
 
@@ -147,132 +254,13 @@ const createHTML = () => {
   fs.writeFile("./dist/index.html", pageLayout, (err) => {
     if (err) throw new Error("Render Error", err);
   });
+  //generate css?
 };
 
 startingQuestions();
 
-// const employeeQuestions = [
-//   {
-//     name: "name",
-//     message: "What is your name?",
-//     type: "input",
-//   },
-//   {
-//     name: "id",
-//     message: "What is your id?",
-//     type: "input",
-//   },
-//   {
-//     name: "email",
-//     message: "What is your email?",
-//     type: "input",
-//   },
-// ];
-
-// const managerQuestions = [
-//   {
-//     name: "name",
-//     message: "What is your name?",
-//     type: "input",
-//   },
-//   {
-//     name: "id",
-//     message: "What is your id?",
-//     type: "input",
-//   },
-//   {
-//     name: "email",
-//     message: "What is your email?",
-//     type: "input",
-//   },
-//   {
-//     name: "office",
-//     message: "What is your office number?",
-//     type: "input",
-//   },
-// ];
-
-// const engineerQuestions = [
-//   {
-//     name: "name",
-//     message: "What is your name?",
-//     type: "input",
-//   },
-//   {
-//     name: "id",
-//     message: "What is your id?",
-//     type: "input",
-//   },
-//   {
-//     name: "email",
-//     message: "What is your email?",
-//     type: "input",
-//   },
-//   {
-//     name: "github",
-//     message: "What is your github?",
-//     type: "input",
-//   },
-// ];
-
-// const internQuestions = [
-//   {
-//     name: "name",
-//     message: "What is your name?",
-//     type: "input",
-//   },
-//   {
-//     name: "id",
-//     message: "What is your id?",
-//     type: "input",
-//   },
-//   {
-//     name: "email",
-//     message: "What is your email?",
-//     type: "input",
-//   },
-//   {
-//     name: "school",
-//     message: "What is your school?",
-//     type: "input",
-//   },
-// ];
-
 //TODO: generate CSS file
 //TODO: clicking on HTML link for email opens email in new window with to field as the email address
 //TODO: clicking on github link opens in new tab
-//TODO: start application, asked to put in Manager info
-
-//TODO: this needs to be series of inquirer prompts.
-
-// inquirer.prompt(startingQuestions).then((answers) => {
-//   // console.log(answers);
-//   if ((answers = "Employee")) {
-//     inquirer.prompt(employeeQuestions).then((answers) => {
-//       console.log(startingQuesitons.answers, answers);
-//       return;
-//     });
-//   }
-// if ((answers = "Manager")) {
-//   inquirer.prompt(managerQuestions).then((answers) => {
-//     console.log(answers);
-//     return;
-//   });
-// }
-// if ((answers = "Engineer")) {
-//   inquirer.prompt(engineerQuestions).then((answers) => {
-//     console.log(answers);
-//     return;
-//   });
-// }
-// if ((answers = "Intern")) {
-//   inquirer.prompt(internQuestions).then((answers) => {
-//     console.log(answers);
-//     return;
-//   });
-// }
-//   console.log(answers);
-// });
-
 //TODO: Option to add intern or engineer
 //TODO: html generates at the end with team roster

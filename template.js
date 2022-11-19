@@ -1,6 +1,19 @@
 const makePage = (myTeam) => {
   console.log("It's my team", myTeam);
   let test = `<h1>${myTeam[0].name}</h1>`;
+  let test2 = `<div class="tile is-6 is-parent">
+              <article class="tile is-child notification is-info">
+                <p class="title">${name}</p>
+                <p class="subtitle">${role}</p>
+                <section class="is-primary">
+                  <p class="box">${id}</p>
+                  <p class="box">${email}</p>
+                  <p class="box">${office}</p>
+                </section>
+              </article>
+            </div>`
+  let cards = [];
+
   let newPage = `<!DOCTYPE html>
   <html>
     <head>
