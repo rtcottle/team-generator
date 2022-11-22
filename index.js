@@ -231,6 +231,6 @@ const createHTML = () => {
 };
 
 startingQuestions();
-
+//TODO: create if statements that if getRole = manager, display office number. Engineer = github. Intern = school.
 //TODO: check to see if email link works.
 //TODO: clicking on github link opens in new tab

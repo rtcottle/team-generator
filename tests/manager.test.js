@@ -1,29 +1,38 @@
-const Manager = requires("../lib/manager.js");
-const index = requires("../index.js");
+const Manager = require("../lib/manager.js");
 
 describe("Manager", () => {
-  describe("Initialization", () => {
-    //Positive test
-    it("should create an object with a 'name' property set to the 'text' argument provided when called with the 'new' keyword", () => {
-      //Arrange
-      const text = "Robert Smith";
+  // Positive test
 
-      //Act
-      const obj = new Manager(text);
+  it("when I set officeNumber property I'm able to access the value of officeNumber on the object", () => {
+    // Arrange
+    const officeNumber = 11;
 
-      //Assert
-      expect(obj.text).toEqual(text);
-    });
+    // Act
+    const obj = new Manager("Robert", 4, "robert@yahoo.com", officeNumber);
 
-    //Exception test
-    it("should throw an error if not provided a 'text' value", () => {
-      //Arrange
-      const cb = () => new Manager();
-      const err = new Error(
-        "expected parameter 'text' to be a non empty string"
-      );
-      //Assert
-      expect(cb).toThrowError(err);
-    });
+    // Assert
+    expect(obj.officeNumber).toEqual(officeNumber);
+  });
+
+  it("when I set officeNumber property I'm able to access the value by invoking getOfficeNumber method", () => {
+    // Arrange
+    const officeNumber = 11;
+
+    // Act
+    const obj = new Manager("Robert", 4, "robert@yahoo.com", officeNumber);
+
+    // Assert
+    expect(obj.getOfficeNumber()).toEqual(officeNumber);
+  });
+
+  it("I'm able to get the role when I invoke the getRole method", () => {
+    // Arrange
+    const role = "Manager";
+
+    // Act
+    const obj = new Manager("Robert", 4, "robert@yahoo.com", 11);
+
+    // Assert
+    expect(obj.getRole()).toEqual(role);
   });
 });

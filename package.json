@@ -1,8 +1,13 @@
 {
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "",
+  "license": "ISC",
   "dependencies": {
     "inquirer": "^8.2.4"
   },
-  "scripts": {
-    "test": "jest"
+  "devDependencies": {
+    "jest": "^24.9.0"
   }
 }
