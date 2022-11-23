@@ -37,7 +37,6 @@ const startingQuestions = () => {
       }
     });
 };
-//TODO: ask about getting the name to show up from the initial selection.
 //add an additional employee
 const addNewEmployee = () => {
   inquirer
@@ -227,10 +226,10 @@ const createHTML = () => {
   fs.writeFile("./dist/index.html", pageLayout, (err) => {
     if (err) throw new Error("Render Error", err);
   });
-  stylePage();
+  // TODO: fix this for css file
+  // fs.writeFile("./dist/style.css", stylePage, (err) => {
+  //   if (err) throw new Error("Render Error", err);
+  // });
 };
 
 startingQuestions();
-//TODO: create if statements that if getRole = manager, display office number. Engineer = github. Intern = school.
-//TODO: check to see if email link works.
-//TODO: clicking on github link opens in new tab

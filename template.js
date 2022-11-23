@@ -1,19 +1,33 @@
 const makePage = (myTeam) => {
   let cards = [];
   console.log("It's my team", myTeam);
+  // determines if office number, github, or school is shown in card.
+  let alternativeContact = (employee) => {
+    const role = employee.getRole();
+    switch (role) {
+      case "Manager":
+        return employee.officeNumber;
+      case "Engineer":
+        return employee.github;
+      case "Intern":
+        return employee.school;
+    }
+  };
   // loop to take each employee type and store data in cards array.
   for (let i = 0; i < myTeam.length; i++) {
-    //   let test = `<h1>${myTeam[0].name}</h1>`;
-    // TODO: how to get a for loop to go through each card?
+    const employee = myTeam[i];
+    // section builds the cards for each employee
     let card = `
             <div class="tile is-6 is-parent">
               <article class="tile is-child notification is-info">
-                <p class="title">${myTeam[i].name}</p>
-                <p class="subtitle">${myTeam[i].constructor.name}</p>
+                <p class="title">${employee.name}</p>
+                <p class="subtitle">${employee.getRole()}</p>
                 <section class="is-primary">
-                  <p class="box">${myTeam[i].id}</p>
-                  <p class="box"><a href="mailto:${myTeam[i].email}">${myTeam[i].email}</a></p>
-                  <p class="box">${myTeam[i].office}${myTeam[i].github}${myTeam[i].school}</p>
+                  <p class="box">${employee.id}</p>
+                  <p class="box"><a href="mailto:${employee.email}">${
+      employee.email
+    }</a></p>
+                  <p class="box">${alternativeContact(employee)}</p>
                 </section>
               </article>
             </div>`;
