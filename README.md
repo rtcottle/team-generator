@@ -25,11 +25,11 @@ Inquirer is required for this package. This can be installed by running "npm i i
 
 ## Usage
 
-<!-- Generate a readme framework file with some basic information.
+Open this app to create a team with a manager, engineers, and interns.
 
-Link to video of this program working: https://drive.google.com/file/d/1CFXFXSCEnvwX0oDdUZck_2fa6rP3CxBW/view
+Link to video of this program working:
 
-![screenshot](./screenshot.png) -->
+![screenshot](./screenshot.png)
 
 ## Credits
 
@@ -44,7 +44,7 @@ This project is under the [![License: MIT](https://img.shields.io/badge/License-
 
 ## Features
 
-<!-- Generating a readme file, adding the license badge/url and linking my email/github as needed. -->
+This app helps to generate a team/group roster.
 
 ## How to Contribute
 
