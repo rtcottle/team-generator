@@ -27,9 +27,9 @@ Inquirer is required for this package. This can be installed by running "npm i i
 
 Open this app to create a team with a manager, engineers, and interns.
 
-Link to video of this program working:
+Link to video of this program working: https://drive.google.com/file/d/163kDpDALei3IWjs8lTXV0wL_rWKWhZYn/view
 
-![screenshot](./screenshot.png)
+![screenshot of possible result](./screenshot.png)
 
 ## Credits
 
